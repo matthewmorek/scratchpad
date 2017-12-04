@@ -70,6 +70,7 @@ export default {
         var button = document.querySelector('#export-btn');
         button.href = 'data:text/json;charset=utf-8,' + escape(archive);
       },
+      // Ensure the watcher goes deep
       deep: true
     }
   },
@@ -89,8 +90,6 @@ export default {
         if (!this.editedNote.id && this.editedNote.content && this.notes.indexOf(draft.id) === -1) {
           var lastId = this.notes.push(draft);
           this.editedNote = this.notes[lastId - 1];
-        } else {
-
         }
       },
       500
