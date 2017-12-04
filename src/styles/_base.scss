@@ -62,3 +62,106 @@ p {
 small {
   color: $grey-dark;
 }
+
+
+// ---------------------------------------------------------------------------
+// Main App Styles
+// ---------------------------------------------------------------------------
+.header {
+  background-color: darken($brand-onyx, 5%);
+}
+
+.footer {
+  border-top: 1px solid darken($brand-onyx, 3%);
+}
+
+.notes--item {
+  cursor: default;
+  max-height: 6rem;
+  overflow-y: hidden;
+  box-shadow: inset rgba($brand-onyx, 0.5) 0 -0.125rem 1rem;
+
+  &.active {
+    background-color: lighten($brand-onyx, 10%);
+  }
+}
+
+.editor--content {
+  flex: 1 1 auto;
+  background-color: lighten($brand-onyx, 10%);
+  border: 0;
+  color: $brand-primary-lt;
+  font-family: "Input", "Menlo", monospace;
+  font-size: 0.875rem;
+  height: 100%;
+}
+
+.editor--tags {
+  background-color: lighten($brand-onyx, 5%);
+  border: 0;
+  color: $brand-primary-lt;
+  font-family: "Input", "Menlo", monospace;
+  font-size: 0.875rem;
+}
+
+.tag {
+  display: inline-block;
+  color: $brand-primary;
+  background-color: $brand-black-olive;
+  padding: 0.25rem;
+  margin-right: 0.25rem;
+  line-height: 1;
+  border-radius: 3px;
+  font-size: 0.625rem;
+}
+
+.btn-rm {
+  display: block;
+  padding-top: 0.2rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  transition: 0.15s color ease-in, 0.15s background-color ease-in;
+  border: 0;
+  border-radius: 2px;
+  background-color: lighten($brand-onyx, 5%);
+  color: $white;
+  font-family: $font-family;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  vertical-align: baseline;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  max-height: 1.75rem;
+
+  &:hover {
+    background-color: $brand-coral;
+    color: $brand-black-olive;
+  }
+}
+
+.btn-new {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.333rem;
+  transition: 0.15s color ease-in, 0.15s background-color ease-in;
+  border: 0;
+  border-radius: 2px;
+  background-color: lighten($brand-onyx, 5%);
+  color: $white;
+  font-family: $font-family;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $brand-spring;
+    color: $brand-black-olive;
+  }
+}
