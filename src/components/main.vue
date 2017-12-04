@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <aside>
-      <div>
+  <div class="flex flex-auto">
+    <aside class="flex flex-auto flex-column w-30 w-25-m mw6">
+      <div class="flex-auto">
         <div v-for="note in notes" :key="note.id"
           @click="loadNote(note)"
           :class="{ active: editedNote === note }"
-          class="notes--item">
+          class="notes--item pa3">
 
           <list-item :note="note" @remove-item="removeNote">
           </list-item>
@@ -13,9 +13,9 @@
       </div>
     </aside>
 
-    <section>
+    <section class="flex flex-auto flex-column w-70 w-75-m h-100">
       <textarea
-        class="editor--content"
+        class="editor--content pa3 pa4-ns"
         placeholder="Type your note here…"
         autofocus
         autocomplete="off"
