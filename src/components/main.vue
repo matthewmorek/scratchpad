@@ -1,6 +1,9 @@
 <template>
   <div class="flex flex-auto">
     <aside class="flex flex-auto flex-column w-30 w-25-m mw6" v-show="notes.length">
+      <div class="pa3 tc">
+        <button class="btn-new" @click="createNote">New note</button>
+      </div>
       <div class="flex-auto">
         <div v-for="note in notes" :key="note.id"
           @click="loadNote(note)"
