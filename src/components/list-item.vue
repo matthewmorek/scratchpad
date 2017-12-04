@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <div>
-      <h4>{{ getTitle() }}</h4>
-      <p>
+  <div class="flex">
+    <div class="flex-auto">
+      <h4 class="mv1 f6">{{ getTitle() }}</h4>
+      <p class="mv1">
         <span class="tag" v-for="tag in getTags()">{{ tag }}</span>
       </p>
     </div>
-    <div>
+    <div class="flex items-center">
       <button class="btn-rm" @click.stop="remove">&times;</button>
     </div>
   </div>
