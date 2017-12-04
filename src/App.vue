@@ -14,3 +14,5 @@ export default {
   components: { AppHeader, AppFooter }
 };
 </script>
+
+<style src="./styles/main.scss" lang="scss"></style>
