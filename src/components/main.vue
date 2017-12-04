@@ -11,6 +11,9 @@
           </list-item>
         </div>
       </div>
+      <div class="pa3 tc self-end w-100" v-show="notes.length">
+        <a download="export.json" class="btn-new" id="export-btn">Export to file</a>
+      </div>
     </aside>
 
     <section class="flex flex-auto flex-column w-70 w-75-m h-100">
@@ -60,6 +63,9 @@ export default {
     notes: {
       handler: function (notes) {
         notesStorage.save(notes);
+        var archive = JSON.stringify(this.notes);
+        var button = document.querySelector('#export-btn');
+        button.href = 'data:text/json;charset=utf-8,' + escape(archive);
       },
       deep: true
     }
