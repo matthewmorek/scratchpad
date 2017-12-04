@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
-    <h1>Scratchpad</h1>
+  <div class="header pa3">
+    <h1 class="mv1 f4 tc">Scratchpad</h1>
   </div>
 </template>
