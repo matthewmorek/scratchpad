@@ -19,7 +19,7 @@
       </div>
     </aside>
 
-    <section class="flex flex-auto flex-column w-70 w-75-m h-100">
+    <section class="flex flex-auto flex-column w-70 w-75-m">
       <textarea
         class="editor--content pa3 pa4-ns"
         placeholder="Type your note here…"
