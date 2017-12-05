@@ -103,6 +103,7 @@ export default {
             id: (this.editedNote.id ? this.editedNote.id : notesStorage.uid++),
             content: this.editedNote.content
           };
+          // Check if the editor is not empty before adding a new note
           if (this.editedNote.content !== undefined && this.editedNote.content.length > 0) {
             var lastId = this.notes.push(draft);
             this.editedNote = this.notes[lastId - 1];
