@@ -16,10 +16,15 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
+
+# serve previously built app over http
+npm run serve
 ```
 
 ## Methodology
 This section will try and articulate my inner thoughts on how the app came to be, including the decision-making process.
+
+> This app will load under 3 seconds on a high-latency, `8 Mbps` broadband connection (DL: 1024 KB/s, UP: 512 KB/s, L: 250ms).
 
 ### 1. Picking a toolkit
 Since I never worked with either VueJS or React, I decided to give the former a go and see how things work. Vue seem to have a nice automated project setup tool called `vue-cli`, which I used as a boilerplate to kick things off.
