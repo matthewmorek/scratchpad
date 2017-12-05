@@ -83,6 +83,7 @@ export default {
         response.data.forEach(function (item) {
           self.notes.push(item);
         });
+        self.editedNote = self.notes[0];
       }).catch(function (e) {
         self.errors.push(e);
       });
