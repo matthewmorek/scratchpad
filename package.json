@@ -8,7 +8,8 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "serve" : "http-server ./dist -p 3000 -a localhost"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -37,6 +38,7 @@
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
+    "http-server": "^0.10.0",
     "lodash": "^4.17.4",
     "modularscale-sass": "^3.0.4",
     "node-notifier": "^5.1.2",
