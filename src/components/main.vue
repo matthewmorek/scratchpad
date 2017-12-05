@@ -35,6 +35,7 @@
 
 <script>
 import _ from 'lodash';
+import axios from 'axios';
 import ListItem from '@/components/list-item';
 
 // localStorage persistence
@@ -59,7 +60,8 @@ export default {
   data: function () {
     return {
       notes: notesStorage.fetch(),
-      editedNote: {}
+      editedNote: {},
+      errors: []
     };
   },
   watch: {
@@ -74,6 +76,18 @@ export default {
       deep: true
     }
   },
+  created: function () {
+    var self = this;
+    if (this.notes.length === 0) {
+      axios.get('/static/import.json').then(function (response) {
+        response.data.forEach(function (item) {
+          self.notes.push(item);
+        });
+      }).catch(function (e) {
+        self.errors.push(e);
+      });
+    }
+  },
   methods: {
     createNote: function () {
       this.editedNote = {};
@@ -82,14 +96,17 @@ export default {
     // Use lodash's debounce to introduce rate limiting
     saveNote: _.debounce(
       function () {
-        var draft = {
-          id: (this.editedNote.id ? this.editedNote.id : notesStorage.uid++),
-          content: this.editedNote.content
-        };
-
-        if (!this.editedNote.id && this.editedNote.content && this.notes.indexOf(draft.id) === -1) {
-          var lastId = this.notes.push(draft);
-          this.editedNote = this.notes[lastId - 1];
+        var self = this;
+        // Check if a note being typed is an edit or a new note
+        if (!this.notes.find(function (el) { return self.editedNote.id === el.id; })) {
+          var draft = {
+            id: (this.editedNote.id ? this.editedNote.id : notesStorage.uid++),
+            content: this.editedNote.content
+          };
+          if (this.editedNote.content !== undefined && this.editedNote.content.length > 0) {
+            var lastId = this.notes.push(draft);
+            this.editedNote = this.notes[lastId - 1];
+          }
         }
       },
       500
